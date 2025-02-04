@@ -9,7 +9,7 @@ const Login = () => {
 
   const { backendUrl, setIsLoggedIn, getUserData } = useContext(appContent);
 
-  const [state, setState] = useState("Sign up");
+  const [state, setState] = useState("Login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,12 +26,12 @@ const Login = () => {
         });
         if (data.success) {
           setIsLoggedIn(true);
-          getUserData();
+          // getUserData(); This line show the error like User is notAuthorized toast popup
           toast.success("Registered Successfully");
           setName("");
           setEmail("");
           setPassword("");
-          setState("login");
+          setState("Login");
         } else {
           toast.error(data.message);
         }
@@ -123,7 +123,7 @@ const Login = () => {
 
         {state === "Sign up" ? (
           <p className="text-gray-400 mt-4 text-xm text-center">
-            Already have an Account?{" "}
+            Already have an Account?
             <span
               onClick={() => setState("Login")}
               className="text-blue-400 cursor-pointer hover:underline"

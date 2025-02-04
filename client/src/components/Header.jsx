@@ -10,7 +10,7 @@ const Header = () => {
       <img
         src={assets.header_img}
         alt="header"
-        className="w-60 h-60 rounded-full mb-6"
+        className="w-36 h-36 rounded-full mb-6"
       />
 
       <h1 className="flex items-center text-xl sm:text-3xl font-medium mb-2">
