@@ -35,7 +35,7 @@ const Navbar = () => {
       data.sucess && setIsLoggedIn(false);
       data.sucess && setUserData(false);
       toast.success("Logged out successfully!");
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       toast.error(error.message);
     }
@@ -67,7 +67,7 @@ const Navbar = () => {
         </div>
       ) : (
         <button
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/")}
           className="flex items-center gap-2 rounded-full border border-gray-400 px-6 py-2 text-gray-800 hover:bg-gray-100 transition-all cursor-pointer "
         >
           Login <img src={assets.arrow_icon} alt="arrow" />

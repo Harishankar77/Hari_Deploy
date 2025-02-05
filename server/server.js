@@ -14,7 +14,6 @@ connectDB();
 
 // ✅ Fix: Allow frontend to access backend
 const allowedOrigins = ["http://localhost:5173"];
-
 app.use(
   cors({
     origin: allowedOrigins, // ✅ Corrected the allowed origin

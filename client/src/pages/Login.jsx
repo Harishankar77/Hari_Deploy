@@ -46,7 +46,7 @@ const Login = () => {
           toast.success("Login Successfully");
           setEmail("");
           setPassword("");
-          navigate("/");
+          navigate("/login");
         } else {
           toast.error(data.message);
         }

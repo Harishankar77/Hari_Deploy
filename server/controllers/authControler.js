@@ -2,6 +2,10 @@ import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import transpoter from "../config/nodemailer.js";
+import {
+  EMAIL_VERIFY_TEMPLATE,
+  PASSWORD_RESET_TEMPLATE,
+} from "../config/emailTemplates.js";
 // User Registeration
 export const Register = async (req, res) => {
   try {
@@ -48,6 +52,7 @@ export const Register = async (req, res) => {
       subject: "Welcome to Hari MERN Stack",
       text: `Welcome to Hari MERN Stack Website. Your Account is created Successfully at Email is : ${email} `,
     };
+
     // send Email Logic
     await transpoter.sendMail(mailOptions);
 
@@ -140,7 +145,11 @@ export const sendVerifyOtp = async (req, res) => {
       from: process.env.SENDER_EMAIL,
       to: user.email,
       subject: "Account Verification OTP",
-      text: `Your OTP is. ${otp} . Verify Your Account using this OTP. `,
+      // text: `Your OTP is. ${otp} . Verify Your Account using this OTP. `,
+      html: EMAIL_VERIFY_TEMPLATE.replace("{{otp}}", otp).replace(
+        "{{email}}",
+        user.email
+      ),
     };
     await transpoter.sendMail(mailOptions);
     res.json({
@@ -228,10 +237,14 @@ export const sendResetOtp = async (req, res) => {
       from: process.env.SENDER_EMAIL,
       to: user.email,
       subject: "Password Reset OTP",
-      text: `Your OTP for reseting your password is : ${otp} . Use this OTP to proceed with reseting your password. `,
+      // text: `Your OTP for reseting your password is : ${otp} . Use this OTP to proceed with reseting your password. `,
+      html: PASSWORD_RESET_TEMPLATE.replace("{{otp}}", otp).replace(
+        "{{email}}",
+        user.email
+      ),
     };
     await transpoter.sendMail(mailOptions);
-    res.json({ sucess: true, message: "OTP Sent to Your Email" });
+    res.json({ success: true, message: "OTP Sent to Your Email" });
   } catch (error) {
     return res.json({ sucess: false, message: error.message });
   }
