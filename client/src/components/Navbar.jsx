@@ -31,8 +31,8 @@ const Navbar = () => {
     try {
       axios.defaults.withCredentials = true;
       const { data } = await axios.post("https://hari-auth-server.onrender.com/api/auth/logout");
-      data.sucess && setIsLoggedIn(false);
-      data.sucess && setUserData(false);
+      data.success && setIsLoggedIn(false);
+      data.success && setUserData(false);
       toast.success("Logged out successfully!");
       navigate("/");
     } catch (error) {
