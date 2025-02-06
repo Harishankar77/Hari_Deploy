@@ -13,7 +13,7 @@ const app = express();
 connectDB();
 
 // ✅ Fix: Allow frontend to access backend
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = ["https://hari-auth-client.onrender.com"];
 app.use(
   cors({
     origin: allowedOrigins, // ✅ Corrected the allowed origin
