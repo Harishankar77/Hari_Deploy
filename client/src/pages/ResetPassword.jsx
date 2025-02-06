@@ -51,7 +51,7 @@ const ResetPassword = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        backendUrl + "/api/auth/send-reset-otp",
+        "https://hari-auth-server.onrender.com/api/auth/send-reset-otp",
         { email }
       );
       if (data.success) {
@@ -76,7 +76,7 @@ const ResetPassword = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        backendUrl + "/api/auth/send-password",
+        "https://hari-auth-server.onrender.com/api/auth/send-password",
         { email, otp, newPassword }
       );
       if (data.success) {
