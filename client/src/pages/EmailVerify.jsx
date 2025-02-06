@@ -48,7 +48,7 @@ const EmailVerify = () => {
       const otpArray = inputRefs.current.map((e) => e.value);
       const otp = otpArray.join("");
       const { data } = await axios.post(
-        backendUrl + "/api/auth/verify-account",
+        "https://hari-auth-server.onrender.com/api/auth/verify-account",
         { otp }
       );
       if (data.success) {
