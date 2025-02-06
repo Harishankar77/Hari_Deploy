@@ -46,7 +46,7 @@ const Login = () => {
           toast.success("Login Successfully");
           setEmail("");
           setPassword("");
-          navigate("https://harishankar.onrender.com");
+          navigate("/login");
         } else {
           toast.error(data.message);
         }
