@@ -31,9 +31,7 @@ app.use(cookieParser());
 // Routes
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
-app.get("/", (req, res) => {
-  res.send(`Welcome Harishankar Banjare`);
-});
+
 // Start Server
 app.listen(port, () => {
   console.log(`Server is running on PORT: ${port}`);
