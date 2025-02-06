@@ -19,7 +19,7 @@ const Login = () => {
       e.preventDefault();
       axios.defaults.withCredentials = true;
       if (state === "Sign up") {
-        const { data } = await axios.post(backendUrl + "/api/auth/register", {
+        const { data } = await axios.post("https://hari-auth-server.onrender.com/api/auth/register", {
           name,
           email,
           password,
@@ -36,7 +36,7 @@ const Login = () => {
           toast.error(data.message);
         }
       } else {
-        const { data } = await axios.post(backendUrl + "/api/auth/login", {
+        const { data } = await axios.post("https://hari-auth-server.onrender.com/api/auth/login", {
           email,
           password,
         });
