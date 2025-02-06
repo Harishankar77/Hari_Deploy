@@ -42,7 +42,7 @@ const Login = () => {
         });
         if (data.success) {
           setIsLoggedIn(true);
-          getUserData();
+          // getUserData();
           toast.success("Login Successfully");
           setEmail("");
           setPassword("");
