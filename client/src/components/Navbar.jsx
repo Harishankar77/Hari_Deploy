@@ -3,7 +3,6 @@ import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { appContent } from "../context/appContext";
-import { div } from "framer-motion/client";
 import { toast } from "react-toastify";
 import axios from "axios";
 const Navbar = () => {
